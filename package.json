@@ -10,6 +10,8 @@
     "react-scripts": "2.1.3"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -28,6 +30,8 @@
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
+    "gh-pages": "^2.0.1",
     "typescript": "^3.2.2"
-  }
+  },
+  "homepage": "http://daviidli.github.io/Shopify-WebChallenge"
 }

@@ -1,9 +1,9 @@
+import React, { Component } from 'react';
 import {Theme, WithStyles} from "@material-ui/core";
 import createStyles from "@material-ui/core/styles/createStyles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
-import React, { Component } from 'react';
 import Button from "@material-ui/core/Button/Button";
 
 const styles = (theme: Theme) => createStyles({
@@ -17,7 +17,7 @@ const styles = (theme: Theme) => createStyles({
         left: theme.spacing.unit * 2,
         right: 60 + theme.spacing.unit * 4
     },
-    text: {
+    textBox: {
         width: "100%"
     },
     button: {
@@ -25,12 +25,13 @@ const styles = (theme: Theme) => createStyles({
         top: 0,
         bottom: 0,
         right: theme.spacing.unit * 2,
-        width: 60,
-        height: 60,
-        marginTop: theme.spacing.unit * 1.5
+        width: 55,
+        height: 55,
+        marginTop: theme.spacing.unit * 2
     },
     wrapper: {
-        position: "static"
+        position: "static",
+        height: 55 + theme.spacing.unit * 4,
     }
 });
 
@@ -55,7 +56,7 @@ class Search extends Component<Props, State> {
         const value = e.target.value;
 
         if (value == "") {
-            console.log("empty");
+            this.props.submit(value);
         }
 
         this.setState({
@@ -75,16 +76,21 @@ class Search extends Component<Props, State> {
                 <form onSubmit={this.handleSubmit} className={this.props.classes.form}>
                     <div className={this.props.classes.input}>
                         <TextField
-                            id="outlined-search"
-                            type="search"
-                            margin="normal"
-                            placeholder="Search"
-                            variant="outlined"
-                            className={this.props.classes.text}
+                            id={"outlined-search"}
+                            type={"search"}
+                            margin={"normal"}
+                            placeholder={"Search"}
+                            variant={"outlined"}
+                            className={this.props.classes.textBox}
                             onChange={this.handleChange}
                         />
                     </div>
-                    <Button variant="contained" color="primary" type="submit" className={this.props.classes.button}>
+                    <Button
+                        variant={"contained"}
+                        color={"primary"}
+                        type={"submit"}
+                        className={this.props.classes.button}
+                    >
                         <SearchIcon />
                     </Button>
                 </form>
