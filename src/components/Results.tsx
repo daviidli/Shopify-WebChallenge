@@ -10,7 +10,8 @@ import {IInfo} from "../controller/ILookup";
 const styles = (theme: Theme) => createStyles({
     grid: {
         marginLeft: theme.spacing.unit * 2,
-        marginRight: theme.spacing.unit * 2
+        marginRight: theme.spacing.unit * 2,
+        maxWidth: "98%"
     }
 });
 
